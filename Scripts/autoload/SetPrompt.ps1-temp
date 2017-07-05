@@ -1,0 +1,49 @@
+Write-Host "Setting Prompt" 
+
+$Global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+$UserType = "User"
+$CurrentUser.Groups | foreach { if($_.value -eq "S-1-5-32-544") {$UserType = "Admin"} }
+  
+function prompt {
+    if($UserType -eq "Admin") {
+        $host.ui.rawui.WindowTitle = "" + $(get-location) + " : Admin"
+        $host.UI.RawUI.ForegroundColor = "Yellow"
+    }
+    else {
+        $host.ui.rawui.WindowTitle = $(get-location)
+    }
+
+    Write-Host("")
+    $status_string = ""
+
+    if(Test-Path .git) {
+        $status_string = "GIT"
+        git branch | foreach {
+            if ($_ -match "^\*(.*)"){
+                $status_string += $matches[1]
+            }
+        }
+        $git_create_count = 0
+        $git_update_count = 0
+        $git_delete_count = 0
+
+        git status | foreach {
+            if($_ -match "modified:"){ 
+                $git_update_count += 1
+            }
+            elseif($_ -match "deleted:"){ 
+                $git_delete_count += 1
+            }
+            elseif($_ -match "added:"){ 
+                $git_create_count += 1
+            }
+        }
+        $status_string += " u:" + $git_update_count + " d:" + $git_delete_count + ">"
+    }
+    else{
+        $status_string = "PS>"
+    }
+    
+    Write-Host ($status_string) -nonewline -foregroundcolor yellow
+    return " "
+}
