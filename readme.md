@@ -4,9 +4,11 @@ This is a blueprint for a common Powershell configuration script used on my mach
 
 The steps described here will overwrite any existing Powershell configuration! To get this project on a new machine follow these steps from a Powershell command:
 
-- In your `$env:USERPROFILE` directory change into the `Documents\WindowsPowerShell` folder (create the directory if required).
+- In your `$env:USERPROFILE` directory change into the `Documents` folder
 - Enlist in this github project
 
 ```
-git clone --recursive https://github.com/wolfma61/psconfig.git
+git clone --recursive https://github.com/wolfma61/psconfig.git WindowsPowerShell
 ```
+
+The last step will create the repository clone in the `WindowsPowerShell` subdirectory inside the `$env:USERPROFILE\Documents` folder.
