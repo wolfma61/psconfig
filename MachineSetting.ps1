@@ -1,4 +1,4 @@
 Write-Host "MachineSetting"
 
-$WORKDIR = "C:\Users\wolfma\OneDrive\work\PowerShell\cntkBinary"
+$WORKDIR = "C:\repos"
 $GITDIR = "c:\repos"

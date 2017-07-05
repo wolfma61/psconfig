@@ -2,6 +2,9 @@ Write-Host "SetAlias"
 
 function Set-WorkDirectory { Set-Location $WORKDIR }
 function Set-GitDirectory { Set-Location $GITDIR }
+function Set-GitCntkDirectory { Set-Location $GITDIR\cntk }
+function Set-GitCntkDocDirectory { Set-Location $GITDIR\cognitive-toolkit-docs-pr }
+function Set-GitJenkinsScriptDirectory { Set-Location $GITDIR\JenkinsScript }
 #function Set-ScriptDirectory { set-location $env:Userprofile\Documents\WindowsPowerShell\Scripts } 
 function Set-OneDriveScriptDirectory { set-location $env:Userprofile\OneDrive\work\PowerShell }
 function Open-PrInCodeflow(
@@ -21,3 +24,6 @@ set-alias gitwork Set-GitDirectory
 #set-alias script Set-ScriptDirectory
 set-alias onescript Set-OneDriveScriptDirectory
 set-alias pr Open-PrInCodeflow
+set-alias gitc Set-GitCntkDirectory
+set-alias gitd Set-GitCntkDocDirectory
+set-alias gitj Set-GitJenkinsScriptDirectory
