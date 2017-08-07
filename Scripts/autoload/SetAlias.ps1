@@ -12,7 +12,7 @@ function Open-PrInCodeflow(
     [Parameter(Mandatory = $true)][ValidateScript( {$_ -ge 1})] [int] $PullRequest) {
     switch ($RepoString) {
         'Cntk' { $repoUrl = 'https://github.com/Microsoft/cntk/pull/' + $PullRequest }
-        'DocCntk' { $repoUrl = 'https://github.com/MicrosoftDocs/cognitive-toolkit-docs-pr/pull/' + $PullRequest }
+        'DocCntk' { $repoUrl = 'https://github.com/MicrosoftDocs/cognitive-toolkit-docs/pull/' + $PullRequest }
     }
     $command = "cmd.exe /C \\codeflow\public\cf.cmd openGitHubPR -webUrl $repoUrl"
     Write-Host Open Codeflow: $command
