@@ -19,11 +19,21 @@ function Open-PrInCodeflow(
     &Invoke-Expression -Command:$command
 }
 
+function Add-PSModulePath(
+    [Parameter(Mandatory = $true)][ValidateSet('Jenkins')] [string] $moduleLocation) {
+    switch ($moduleLocation) {
+        'Jenkins' { $moduleDir = "C:\repos\JenkinsScript\Windows\ps\Modules" }
+    }
+    Write-Host Adding to PSModulePath: $moduleDir
+    $env:PSModulePath = "$moduleDir;$env:PSModulePath"
+}
+
 set-alias work Set-WorkDirectory
 set-alias gitwork Set-GitDirectory
 #set-alias script Set-ScriptDirectory
 set-alias onescript Set-OneDriveScriptDirectory
 set-alias pr Open-PrInCodeflow
+set-alias apm Add-PSModulePath
 set-alias gitc Set-GitCntkDirectory
 set-alias gitd Set-GitCntkDocDirectory
 set-alias gitj Set-GitJenkinsScriptDirectory
