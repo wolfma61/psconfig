@@ -3,7 +3,7 @@ Write-Host "SetAlias"
 function Set-WorkDirectory { Set-Location $WORKDIR }
 function Set-GitDirectory { Set-Location $GITDIR }
 function Set-GitCarbonDirectory { Set-Location $GITDIR\carbon }
-function Set-GitCarbonDocDirectory { Set-Location $GITDIR\cognitive-toolkit-docs }
+function Set-GitCarbonDocDirectory { Set-Location $GITDIR\azure-docs-pr\articles\cognitive-services\Speech\SDK\ }
 function Set-OneDriveScriptDirectory { set-location $env:Userprofile\OneDrive\work\PowerShell }
 function Open-PrInCodeflow(
     [Parameter(Mandatory = $true)][ValidateSet('Carbon', 'DocCarbon')] [string] $RepoString, 
@@ -33,5 +33,6 @@ set-alias onescript Set-OneDriveScriptDirectory
 set-alias pr Open-PrInCodeflow
 set-alias apm Add-PSModulePath
 set-alias gitc Set-GitCarbonDirectory
+set-alias gita Set-GitCarbonDocDirectory
 set-alias gitd Set-GitCarbonDocDirectory
 
