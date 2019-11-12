@@ -5,7 +5,7 @@ function Set-GitDirectory { Set-Location $GITDIR }
 function Set-GitCarbonDirectory { Set-Location $GITDIR\carbon }
 function Set-GitCrisAiDirectory { Set-Location $GITDIR\CrisAi }
 function Set-GitFrontDirectory{ Set-Location $GITDIR\front }
-function Set-GitSpeechServicesDirectory{ Set-Location $GITDIR\SoeechServices }
+function Set-GitSpeechServicesDirectory{ Set-Location $GITDIR\SpeechServices }
 function Set-GitCarbonDocDirectory { Set-Location $GITDIR\azure-docs-pr\articles\cognitive-services\Speech\SDK\ }
 function Set-OneDriveScriptDirectory { set-location $env:Userprofile\OneDrive\work\PowerShell }
 function Open-PrInCodeflow(
