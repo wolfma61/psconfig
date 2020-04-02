@@ -4,9 +4,8 @@ function Set-WorkDirectory { Set-Location $WORKDIR }
 function Set-GitDirectory { Set-Location $GITDIR }
 function Set-GitCarbonDirectory { Set-Location $GITDIR\carbon }
 function Set-GitCrisAiDirectory { Set-Location $GITDIR\CrisAi }
-function Set-GitFrontDirectory{ Set-Location $GITDIR\front }
 function Set-GitSpeechServicesDirectory{ Set-Location $GITDIR\SpeechServices }
-function Set-GitCarbonDocDirectory { Set-Location $GITDIR\azure-docs-pr\articles\cognitive-services\Speech\SDK\ }
+function Set-GitAzureDocsDirectory { Set-Location $GITDIR\azure-docs-pr-wolfma61 }
 function Set-OneDriveScriptDirectory { set-location $env:Userprofile\OneDrive\work\PowerShell }
 function Open-PrInCodeflow(
     [Parameter(Mandatory = $true)][ValidateSet('Carbon', 'DocCarbon')] [string] $RepoString, 
@@ -36,8 +35,7 @@ set-alias pr Open-PrInCodeflow
 set-alias apm Add-PSModulePath
 set-alias gitr Set-GitDirectory
 set-alias gitc Set-GitCrisAiDirectory
-set-alias gitf Set-GitFrontDirectory
 set-alias gits Set-GitSpeechServicesDirectory
-
+set-alias gita Set-GitAzureDocsDirectory
 
 
