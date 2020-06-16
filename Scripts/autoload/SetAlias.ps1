@@ -8,10 +8,10 @@ function Set-GitSpeechServicesDirectory{ Set-Location $GITDIR\SpeechServices }
 function Set-GitAzureDocsDirectory { Set-Location $GITDIR\azure-docs-pr-wolfma61 }
 function Set-OneDriveScriptDirectory { set-location $env:Userprofile\OneDrive\work\PowerShell }
 function Open-PrInCodeflow(
-    [Parameter(Mandatory = $true)][ValidateSet('Carbon', 'DocCarbon')] [string] $RepoString, 
+    [Parameter(Mandatory = $true)][ValidateSet('AzureDocs', 'DocCarbon')] [string] $RepoString, 
     [Parameter(Mandatory = $true)][ValidateScript( {$_ -ge 1})] [int] $PullRequest) {
     switch ($RepoString) {
-        'Cntk' { $repoUrl = 'https://msasg.visualstudio.com/Skyman/_git/Carbon/pullrequest/' + $PullRequest }
+        'AzureDocs' { $repoUrl = 'https://github.com/MicrosoftDocs/azure-docs-pr/pull/' + $PullRequest }
         'DocCntk' { $repoUrl = 'https://msasg.visualstudio.com/Skyman/_git/Carbon/pullrequest/' + $PullRequest }
     }
     $command = "cmd.exe /C \\codeflow\public\cf.cmd openGitHubPR -webUrl $repoUrl"
@@ -31,7 +31,7 @@ function Add-PSModulePath(
 set-alias work Set-WorkDirectory
 set-alias gitwork Set-GitDirectory
 set-alias onescript Set-OneDriveScriptDirectory
-set-alias pr Open-PrInCodeflow
+set-alias codeflow Open-PrInCodeflow
 set-alias apm Add-PSModulePath
 set-alias gitr Set-GitDirectory
 set-alias gitc Set-GitCrisAiDirectory
