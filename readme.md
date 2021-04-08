@@ -8,7 +8,7 @@ The steps described here will overwrite any existing Powershell configuration! T
 - Enlist in this github project
 
 ```
-git clone --recursive https://github.com/wolfma61/psconfig.git WindowsPowerShell
+git clone --recursive https://github.com/wolfma61/psconfig.git PowerShell
 ```
 
-The last step will create the repository clone in the `WindowsPowerShell` subdirectory inside the `$env:USERPROFILE\Documents` folder.
+The last step will create the repository clone in the `PowerShell` subdirectory inside the `$env:USERPROFILE\Documents` folder.

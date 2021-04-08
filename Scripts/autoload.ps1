@@ -2,7 +2,7 @@ Write-Host "Autoload"
 
 # directory where my scripts are stored
 
-$psdir="$env:Userprofile\Documents\WindowsPowerShell\Scripts\autoload"  
+$psdir="$env:Userprofile\Documents\PowerShell\Scripts\autoload"  
 
 # load all 'autoload' scripts#
 

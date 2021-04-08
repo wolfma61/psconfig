@@ -4,7 +4,7 @@ Write-Host "SetPrompt"
 # Displays git branch and stats when inside a git repository.
 
 # See http://gist.github.com/180853 for gitutils.ps1.
-. (Resolve-Path ${env:USERPROFILE}\Documents\WindowsPowerShell\Scripts\GitPromptUtil.ps1)
+. (Resolve-Path ${env:USERPROFILE}\Documents\PowerShell\Scripts\GitPromptUtil.ps1)
 
 function prompt {
 	$path = ""

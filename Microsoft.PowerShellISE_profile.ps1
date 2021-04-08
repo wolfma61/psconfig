@@ -1,2 +1,2 @@
-. $env:Userprofile"\Documents\WindowsPowerShell\CommonProfile.ps1"
+. $env:Userprofile"\Documents\PowerShell\CommonProfile.ps1"
  

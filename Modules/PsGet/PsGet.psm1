@@ -10,15 +10,15 @@
 
 Write-Debug 'Set up the global scope config variables.'
 if ([Environment]::GetFolderPath('MyDocuments')) {
-    $global:UserModuleBasePath = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 'WindowsPowerShell\Modules'
+    $global:UserModuleBasePath = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 'PowerShell\Modules'
 }
 else {
     # Support scenarios where PSGet is running without a MyDocuments special folder (e.g. executing within a DSC resource)
-    $global:UserModuleBasePath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsPowerShell\Modules'
+    $global:UserModuleBasePath = Join-Path -Path $env:ProgramFiles -ChildPath 'PowerShell\Modules'
 }
 
 # NOTE: Path changed to align with current MS conventions
-$global:CommonGlobalModuleBasePath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsPowerShell\Modules'
+$global:CommonGlobalModuleBasePath = Join-Path -Path $env:ProgramFiles -ChildPath 'PowerShell\Modules'
 
 if (-not (Test-Path -Path:variable:global:PsGetDirectoryUrl)) {
     $global:PsGetDirectoryUrl = 'https://github.com/psget/psget/raw/master/Directory.xml'
@@ -145,7 +145,7 @@ Set-Variable -Name PSGET_PSD1 -Value 'PSD1' -Option Constant -Scope Script
 
         Description
         -----------
-        Installs the Authenticode module to the System32\WindowsPowerShell\v1.0\Modules for all users to use.
+        Installs the Authenticode module to the System32\PowerShell\v1.0\Modules for all users to use.
 
     .EXAMPLE
         # Install-Module -ModuleUrl https://github.com/chaliy/psurl/raw/master/PsUrl/PsUrl.psm1
@@ -1152,7 +1152,7 @@ function Add-PathToPSModulePath {
             if ($pathValue -eq '') {
                 Write-Debug "PSModulePath for scope '$scope' was read empty. Setting PowerShell default instead."
                 if ($scope -eq 'User') {
-                    $pathValue = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 'WindowsPowerShell\Modules'
+                    $pathValue = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 'PowerShell\Modules'
                 }
                 else {
                     $pathValue = Join-Path -Path $PSHOME -ChildPath 'Modules'
@@ -1859,7 +1859,7 @@ function Expand-ZipModule {
 function Update-PSModulePath {
     process {
         # powershell default
-        $psModulePath = "$env:ProgramFiles\WindowsPowershell\Modules\"
+        $psModulePath = "$env:ProgramFiles\PowerShell\Modules\"
 
         $machineModulePath = [Environment]::GetEnvironmentVariable('PSModulePath', 'Machine')
         if (-not $machineModulePath) {
@@ -1870,7 +1870,7 @@ function Update-PSModulePath {
         $userModulePath = [Environment]::GetEnvironmentVariable('PSModulePath', 'User')
         if (-not $userModulePath) {
             # powershell default
-            $userModulePath = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 'WindowsPowerShell\Modules'
+            $userModulePath = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) -ChildPath 'PowerShell\Modules'
         }
 
         $newSessionValue = "$userModulePath;$machineModulePath;$psModulePath"
